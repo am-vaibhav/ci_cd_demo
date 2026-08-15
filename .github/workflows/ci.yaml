@@ -2,10 +2,16 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   linting:
-    runs-on: ubuntu-latest
+    name: Python Linting
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, window-latest, macos-latest]
 
     steps:
       - name: Code checkout
