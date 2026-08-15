@@ -35,6 +35,7 @@ jobs:
 
   testing:
     name: unit-testing
+    needs: linting #this line added to run this testing job sequential, if we remove this line both jobs will run parallel
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
